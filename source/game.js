@@ -1,5 +1,9 @@
+import { random } from './generator'
+
 // WordElement class
 export class WordElement {
+    selectedClass = 'current'
+
     container = null
     letters = null
 
@@ -28,10 +32,22 @@ export class WordElement {
         //Add to wrapper
         wrapper.appendChild(this.container)
     }
+
+    select = () => {
+        this.container.classList.add(this.selectedClass)
+    }
+
+    deselect = () => {
+        this.container.classList.remove(this.selectedClass)
+    }
 }
+
+let wordElements = []
 
 export function load() {
     const guesses = document.getElementById('guess-wrapper')
-    let w1 = new WordElement(guesses)
-    console.log(w1)
+    wordElements.push( new WordElement(guesses) )
+    wordElements[0].select()
 }
+
+//console.log(random())
