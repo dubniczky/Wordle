@@ -1,0 +1,32 @@
+#guess-wrapper
+{
+    margin: 25px;
+}
+
+.word-line
+{
+    margin: 15px auto;
+    width: 245px;
+}
+
+.word-line.current *
+{
+    border-color: white;
+    color: white;
+}
+
+.letter
+{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    
+    border: 2px solid #b3cde0;
+
+    font-family: sans-serif;
+    color: #b3cde0;
+    text-align: center;
+    line-height: 40px;
+    user-select: none;
+    font-size: 30px;
+}

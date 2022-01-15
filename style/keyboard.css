@@ -1,0 +1,31 @@
+#keyboard-wrapper
+{
+    border-top: 3px solid #005b96;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 25%;
+}
+
+#keyboard-wrapper > div
+{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 5px;
+    
+    border: 2px solid white;
+
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    user-select: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#keyboard-wrapper > div:hover
+{
+    background-color: #6497b1;
+}
