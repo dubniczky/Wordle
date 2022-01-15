@@ -5,7 +5,6 @@ module.exports = {
     output: {
         filename: 'bundle.js'
     },
-    mode: 'development',
     plugins: [
         new CopyPlugin({
             patterns: [
