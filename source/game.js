@@ -86,6 +86,9 @@ function calculateCurrentScore() {
 }
 
 function wictory() {
+    // Color last row correct
+    wordElements[cursor.word].setColors([2,2,2,2,2])
+
     console.log('wictory!')
     console.log('Steps: ', wordElements.length)
 }
