@@ -34,12 +34,6 @@ export function load() {
     backspace.innerText = '<'
     backspace.addEventListener('click', () => listeners.backspace())
     keyboard.appendChild(backspace)
-    //enter
-    let enter = document.createElement('div')
-    enter.classList.add('enter')
-    enter.innerText = '+'
-    enter.addEventListener('click', () => listeners.enter())
-    keyboard.appendChild(enter)
 }
 
 export function letterListener(listener) {
@@ -48,8 +42,4 @@ export function letterListener(listener) {
 
 export function backspaceListener(listener) {
     listeners.backspace = listener
-}
-
-export function enterListener(listener) {
-    listeners.enter = listener
 }

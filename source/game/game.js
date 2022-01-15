@@ -22,11 +22,6 @@ function onLetterClick(letter, button) {
         cursor.letter++
         currentWord += letter
     }
-}
-
-function onEnterClick() {
-    console.log('enter')
-
     if (cursor.letter == 5) {
         checkResult()
     }
@@ -107,5 +102,4 @@ let targetWord = ''
 // Load keyboard
 keyboard.load()
 keyboard.letterListener(onLetterClick)
-keyboard.enterListener(onEnterClick)
 keyboard.backspaceListener(onBackspaceClick)
