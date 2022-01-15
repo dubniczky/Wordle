@@ -109,4 +109,3 @@ keyboard.load()
 keyboard.letterListener(onLetterClick)
 keyboard.enterListener(onEnterClick)
 keyboard.backspaceListener(onBackspaceClick)
-

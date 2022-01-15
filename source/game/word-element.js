@@ -16,6 +16,7 @@ export default class WordElement {
         //Create container
         this.container = document.createElement('div')
         this.container.classList.add('word-line')
+        setTimeout(() => this.container.classList.add('show'), 0)
 
         //Create letters
         this.letters = []
