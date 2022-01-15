@@ -2,6 +2,12 @@ const keyLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 let keyboard = null
 let keys = {}
+let listeners = {
+    letter: null,
+    backspace: null,
+    enter: null
+}
+let letterListener = null
 
 export function load() {
     //Get elements
@@ -16,3 +22,14 @@ export function load() {
     }
 }
 
+export function letterListener(listener) {
+    listeners.letter = listener
+}
+
+export function backspaceListener(listener) {
+    listeners.backspace = listener
+}
+
+export function enterListener(listener) {
+    listeners.enter = listener
+}
