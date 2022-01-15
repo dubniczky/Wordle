@@ -1,10 +1,12 @@
 #keyboard-wrapper
 {
-    border-top: 3px solid #005b96;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 45px 45px 45px 45px 45px 45px 45px 45px 45px;
     justify-content: center;
-    padding: 10px 25%;
+    gap: 8px;
+
+    padding: 10px 0;
+    border-top: 3px solid #005b96;
 }
 
 #keyboard-wrapper > div
@@ -12,7 +14,6 @@
     width: 40px;
     height: 40px;
     display: inline-block;
-    margin: 5px;
     
     border: 2px solid white;
 
