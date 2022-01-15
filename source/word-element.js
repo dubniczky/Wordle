@@ -1,5 +1,7 @@
 export default class WordElement {
     selectedClass = 'current'
+    correctClass = 'correct'
+    offsetClass = 'offset'
 
     container = null
     letters = null
@@ -44,5 +46,13 @@ export default class WordElement {
 
     removeLetter = (index) => {
         this.letters[index].innerText = ''
+    }
+
+    setCorrect = (index) => {
+        this.letters[index].classList.add(this.correctClass)
+    }
+
+    setOffset = (index) => {
+        this.letters[index].classList.add(this.offsetClass)
     }
 }

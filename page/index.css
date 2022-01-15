@@ -67,3 +67,13 @@ body
 {
     background-color: #6497b1;
 }
+
+.correct
+{
+    background-color: green;
+}
+
+.offset 
+{
+    background-color: yellow;
+}
