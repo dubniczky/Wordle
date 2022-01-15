@@ -1,4 +1,4 @@
-import wordlist from '../wordlist/list.json'
+import wordlist from '../../wordlist/list.json'
 
 function randint(ceiling) {
     return Math.floor( Math.random() * ceiling )
