@@ -6,7 +6,7 @@
     gap: 8px;
 
     padding: 10px 0;
-    border-top: 3px solid #005b96;
+    border-top: 3px solid var(--green-2);
 }
 
 #keyboard-wrapper > div
@@ -15,10 +15,10 @@
     height: 40px;
     display: inline-block;
     
-    border: 2px solid white;
+    border: 2px solid var(--button);
 
     font-family: sans-serif;
-    color: white;
+    color: var(--button);
     text-align: center;
     line-height: 40px;
     user-select: none;
@@ -28,6 +28,5 @@
 
 #keyboard-wrapper > div:hover
 {
-    background-color: #6497b1;
     transform: scale(1.1);
 }

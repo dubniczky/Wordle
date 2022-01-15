@@ -1,4 +1,15 @@
 :root
 {
-    --green-1: #18392b
+    /* Colors */
+    --green-1: #142f24;
+    --green-2: #398564;
+    --green-3: #49ab81;
+
+    --button: #49ab81;
+    --offset: #dd9b29;
+    --correct: #428bca;
+    --disabled: #555;
+
+    --rainbow-1: #428bca;
+    --rainbow-2: #49ab81;
 }

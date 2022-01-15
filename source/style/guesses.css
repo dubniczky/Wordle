@@ -18,8 +18,8 @@
 
 #guess-wrapper .word-line.current *
 {
-    border-color: white;
-    color: white;
+    border-color: var(--button);
+    color: var(--button);
 }
 
 #guess-wrapper .letter
@@ -30,11 +30,11 @@
     display: inline-block;
     vertical-align: top;
     
-    border: 2px solid #b3cde0;
+    border: 2px solid var(--button);
     box-sizing: border-box;
 
     font-family: sans-serif;
-    color: #b3cde0;
+    color: var(--button);
     text-align: center;
     line-height: 45px;
     user-select: none;

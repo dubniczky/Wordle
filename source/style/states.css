@@ -1,11 +1,13 @@
 .correct
 {
-    background-color: green;
+    border-color: var(--offset) !important;
+    color: var(--offset) !important;
 }
 
 .offset 
 {
-    background-color: #ffa714;
+    border-color: var(--offset) !important;
+    color: var(--offset) !important;
 }
 
 .show
@@ -15,13 +17,13 @@
 
 .disabled
 {
-    border-color: gray !important;
-    color: gray !important;
+    border-color: var(--disabled) !important;
+    color: var(--disabled) !important;
     user-select: none;
     pointer-events: none;
 }
 
 .shadow-letter
 {
-    color: gray !important;
+    color: var(--disabled) !important;
 }

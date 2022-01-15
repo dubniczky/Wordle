@@ -33,11 +33,10 @@
     top: -50%;
     width: 200%;
     height: 200%;
-    background-color: #399953;
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(green, green), linear-gradient(rgb(3, 185, 3), rgb(3, 185, 3)), linear-gradient(green, green), linear-gradient(rgb(3, 185, 3), rgb(3, 185, 3));
+    background-image: linear-gradient(var(--rainbow-1), var(--rainbow-1)), linear-gradient(var(--rainbow-2), var(--rainbow-2)), linear-gradient(var(--rainbow-1),var(--rainbow-1)), linear-gradient(var(--rainbow-2), var(--rainbow-2));
     -webkit-animation: rainbow-rotate 3s linear infinite;
             animation: rainbow-rotate 3s linear infinite;
 
@@ -52,5 +51,5 @@
     top: 3px;
     width: calc(100% - 6px);
     height: calc(100% - 6px);
-    background: #011f4b;
+    background: var(--green-1);
 }
