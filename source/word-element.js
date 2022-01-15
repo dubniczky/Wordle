@@ -52,10 +52,10 @@ export default class WordElement {
         for (let i in this.letters)
         {
             if (score[i] == 1) {
-                this.letters[i].classList.add(this.correctClass)
+                this.letters[i].classList.add(this.offsetClass)
             }
             else if (score[i] == 2) {
-                this.letters[i].classList.add(this.offsetClass)
+                this.letters[i].classList.add(this.correctClass)
             }
         }
     }

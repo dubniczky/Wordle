@@ -51,6 +51,7 @@ function createWord() {
 
     cursor.word = index
     cursor.letter = 0
+    currentWord = ''
 }
 
 function checkResult() {
