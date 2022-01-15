@@ -3,7 +3,6 @@ const fs = require('fs')
 
 const CopyPlugin = require("copy-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
