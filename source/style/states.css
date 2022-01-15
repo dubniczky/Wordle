@@ -17,6 +17,8 @@
 {
     border-color: gray !important;
     color: gray !important;
+    user-select: none;
+    pointer-events: none;
 }
 
 .shadow-letter

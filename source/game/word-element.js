@@ -1,8 +1,9 @@
 export default class WordElement {
-    selectedClass = 'current'
+    currentWordClass = 'current'
     correctClass = 'correct'
     offsetClass = 'offset'
     shadowClass = 'shadow-letter'
+    selectedLetterClass = 'rainbow'
 
     container = null
     letters = null
@@ -35,30 +36,45 @@ export default class WordElement {
             this.letters.push(letter)
         }
 
+        //Add selected effect
+        this.letters[0].classList.add(this.selectedLetterClass)
+
         //Add to wrapper
         wrapper.appendChild(this.container)
     }
 
     select = () => {
-        this.container.classList.add(this.selectedClass)
+        this.container.classList.add(this.currentWordClass)
     }
 
     deselect = () => {
-        this.container.classList.remove(this.selectedClass)
+        this.container.classList.remove(this.currentWordClass)
     }
 
-    addLetter = (letter, index) => {
+    addLetter = (letter, index, rollSelect=true) => {
         let l = this.letters[index]
         l.innerText = letter.toUpperCase()
         l.classList.remove(this.shadowClass)
+
+        if (rollSelect) {
+            l.classList.remove(this.selectedLetterClass)        
+            if (index < 4) {
+                this.letters[index+1].classList.add(this.selectedLetterClass)
+            }
+        }
     }
 
-    removeLetter = (index) => {
+    removeLetter = (index, rollSelect=true) => {
         if (this.shadow[index] == ' ') {
             this.letters[index].innerText = ''
         }
         else {
             this.addShadow(index)
+        }
+        
+        if (rollselect && index > 0) {
+            this.letters[index].classList.remove(this.selectedLetterClass)
+            this.letters[index-1].classList.add(this.selectedLetterClass)
         }
     }
 
@@ -75,7 +91,7 @@ export default class WordElement {
     }
 
     addShadow = (index) => {
-        this.addLetter(this.shadow[index], index)
+        this.addLetter(this.shadow[index], index, false)
         this.letters[index].classList.add(this.shadowClass)
     }
 

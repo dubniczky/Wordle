@@ -29,4 +29,5 @@
 #keyboard-wrapper > div:hover
 {
     background-color: #6497b1;
+    transform: scale(1.1);
 }
