@@ -1,7 +1,7 @@
 .correct
 {
-    border-color: var(--offset) !important;
-    color: var(--offset) !important;
+    border-color: var(--correct) !important;
+    color: var(--correct) !important;
 }
 
 .offset 
