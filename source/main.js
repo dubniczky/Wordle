@@ -1,16 +1,6 @@
 // Load components
+import * as keyboard from './keyboard'
+import * as game from './game'
 
-class Word {
-    container = null
-    letters = null
-
-    constructor(container) {
-        this.container = container
-        this.letters = container.children
-    }
-}
-
-const wrapper = document.getElementById('wrapper')
-
-let w1 = new Word(wrapper.children[0])
-console.log(w1)
+keyboard.load()
+game.load()
