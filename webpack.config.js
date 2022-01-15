@@ -3,16 +3,13 @@ const fs = require('fs')
 
 const CopyPlugin = require("copy-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin").default
 
 module.exports = {
     entry: {
-        'bundle.js': [
+        'bundle': [
             path.resolve(__dirname, './source/main.js')
-        ],
-    },
-    output: {
-        filename: '[name]',
-        path: path.resolve(__dirname, 'dist')
+        ]
     },
     devtool: 'source-map',
     plugins: [
@@ -21,6 +18,7 @@ module.exports = {
                 { from: "page", to: "." },
             ],
         }),
+        new MiniCssExtractPlugin()
     ],
     optimization: {
         minimize: true,
@@ -33,20 +31,13 @@ module.exports = {
                 parallel: true,
             })
         ],
-    }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
+            },
+        ],
+    },
 }
-
-// Bundle CSS files
-function bundleCSS(folder, target) {
-    let files = fs.readdirSync(folder)
-    let data = ''
-
-    for (let f of files)
-    {
-        data += fs.readFileSync(path.resolve(folder, f), 'utf-8') + '\n'
-    }
-
-    fs.writeFileSync(target, data)
-}
-
-bundleCSS('./style/', './dist/bundle.css')
