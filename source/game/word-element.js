@@ -2,14 +2,20 @@ export default class WordElement {
     selectedClass = 'current'
     correctClass = 'correct'
     offsetClass = 'offset'
+    shadowClass = 'shadow-letter'
 
     container = null
     letters = null
+    shadow = null
 
-    constructor(wrapper) {
+    constructor(wrapper, correctLetters) {
+        this.shadow = correctLetters
+
         if (wrapper != null) {
             this.generate(wrapper)
+            this.addShadowAll(correctLetters)
         }
+        
     }
 
     generate = (wrapper) => {
@@ -42,11 +48,18 @@ export default class WordElement {
     }
 
     addLetter = (letter, index) => {
-        this.letters[index].innerText = letter.toUpperCase()
+        let l = this.letters[index]
+        l.innerText = letter.toUpperCase()
+        l.classList.remove(this.shadowClass)
     }
 
     removeLetter = (index) => {
-        this.letters[index].innerText = ''
+        if (this.shadow[index] == ' ') {
+            this.letters[index].innerText = ''
+        }
+        else {
+            this.addShadow(index)
+        }
     }
 
     setColors = (score) => {
@@ -57,6 +70,19 @@ export default class WordElement {
             }
             else if (score[i] == 2) {
                 this.letters[i].classList.add(this.correctClass)
+            }
+        }
+    }
+
+    addShadow = (index) => {
+        this.addLetter(this.shadow[index], index)
+        this.letters[index].classList.add(this.shadowClass)
+    }
+
+    addShadowAll = () => {
+        for (let i in this.shadow) {
+            if (this.shadow[i] != ' ') {
+                this.addShadow(i)
             }
         }
     }

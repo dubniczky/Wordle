@@ -8,6 +8,8 @@ export function load() {
     guessesWrapper = document.getElementById('guess-wrapper')
     createWord()
 
+    correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
+
     targetWord = generator.random()
     console.log(targetWord)
 }
@@ -18,9 +20,9 @@ function onLetterClick(letter, button) {
     console.log(letter, button)
 
     if (cursor.letter < 5) {
-        wordElements[cursor.word].addLetter(letter, cursor.letter)
+        wordElements[cursor.word].addLetter(letter, cursor.letter)        
+        currentWord[cursor.letter] = letter
         cursor.letter++
-        currentWord += letter
     }
     if (cursor.letter == 5) {
         checkResult()
@@ -33,7 +35,7 @@ function onBackspaceClick() {
     if (cursor.letter > 0) {
         cursor.letter--
         wordElements[cursor.word].removeLetter(cursor.letter)
-        currentWord = currentWord.slice(0, -1)
+        currentWord[cursor.letter] = ' '
     }
 }
 
@@ -41,16 +43,25 @@ function onBackspaceClick() {
 
 function createWord() {
     let index = wordElements.length
-    wordElements.push( new WordElement(guessesWrapper) )
+    wordElements.push( new WordElement(guessesWrapper, correctLetters) )
     wordElements[index].select()
 
     cursor.word = index
     cursor.letter = 0
-    currentWord = ''
+    currentWord = [ ' ', ' ', ' ', ' ', ' ' ]
+}
+
+function fixCorrectLetters(score)
+{
+    for (let i in score) {
+        if (score[i] == 2) {
+            correctLetters[i] = currentWord[i]
+        }
+    }
 }
 
 function checkResult() {
-    if (currentWord == targetWord)
+    if (currentWord.join('') == targetWord)
         return wictory()
 
     let score = calculateCurrentScore()
@@ -61,6 +72,9 @@ function checkResult() {
     // Disable keyboard keys
     keyboard.updateKeys(score, currentWord)
 
+    // Fix correct letters
+    fixCorrectLetters(score)
+    console.log(correctLetters)
 
     createWord()
 }
@@ -100,8 +114,9 @@ let cursor = {
     word: 0,
     letter: 0
 }
-let currentWord = ''
+let currentWord = [ ' ', ' ', ' ', ' ', ' ' ]
 let targetWord = ''
+let correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
 
 
 // Load keyboard
