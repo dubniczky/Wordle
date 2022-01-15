@@ -59,16 +59,7 @@ function checkResult() {
     }
 
     let score = calculateCurrentScore()
-
-    for (let i in score)
-    {
-        if (score[i] == 1) {
-            wordElements[cursor.word].setOffset(i)
-        }
-        else if (score[i] == 2) {
-            wordElements[cursor.word].setCorrect(i)
-        }
-    }
+    wordElements[cursor.word].setColors(score)
 
     createWord()
 }

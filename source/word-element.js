@@ -48,11 +48,15 @@ export default class WordElement {
         this.letters[index].innerText = ''
     }
 
-    setCorrect = (index) => {
-        this.letters[index].classList.add(this.correctClass)
-    }
-
-    setOffset = (index) => {
-        this.letters[index].classList.add(this.offsetClass)
+    setColors = (score) => {
+        for (let i in this.letters)
+        {
+            if (score[i] == 1) {
+                this.letters[i].classList.add(this.correctClass)
+            }
+            else if (score[i] == 2) {
+                this.letters[i].classList.add(this.offsetClass)
+            }
+        }
     }
 }
