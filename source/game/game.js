@@ -50,12 +50,17 @@ function createWord() {
 }
 
 function checkResult() {
-    if (currentWord == targetWord) {        
+    if (currentWord == targetWord)
         return wictory()
-    }
 
     let score = calculateCurrentScore()
+
+    // Update guess colors
     wordElements[cursor.word].setColors(score)
+
+    // Disable keyboard keys
+    keyboard.updateKeys(score, currentWord)
+
 
     createWord()
 }

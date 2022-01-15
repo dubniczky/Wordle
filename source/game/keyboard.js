@@ -31,7 +31,7 @@ export function load() {
     //backspace
     let backspace = document.createElement('div')
     backspace.classList.add('backpsace')
-    backspace.innerText = '<'
+    backspace.innerText = '←'
     backspace.addEventListener('click', () => listeners.backspace())
     keyboard.appendChild(backspace)
 }
@@ -42,4 +42,24 @@ export function letterListener(listener) {
 
 export function backspaceListener(listener) {
     listeners.backspace = listener
+}
+
+function addClassToKey(char, classname) {
+    let key = keys[char]
+    key.classList.add(classname)
+}
+
+export function updateKeys(score, word) {
+
+    for (let i in score) {
+        if (score[i] == 0) {
+            addClassToKey(word[i], 'disabled')
+        }
+        else if (score[i] == 1) {
+            addClassToKey(word[i], 'offset')
+        }
+        else if (score[i] == 2) {
+            addClassToKey(word[i], 'correct')
+        }
+    }
 }

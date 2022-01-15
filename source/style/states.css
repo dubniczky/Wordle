@@ -5,10 +5,16 @@
 
 .offset 
 {
-    background-color: yellow;
+    background-color: #ffa714;
 }
 
 .show
 {
     opacity: 1;
+}
+
+.disabled
+{
+    border-color: gray !important;
+    color: gray !important;
 }
