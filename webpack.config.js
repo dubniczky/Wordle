@@ -15,7 +15,7 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: "page", to: "." },
+                { from: "./source/page/", to: "." },
             ],
         }),
         new MiniCssExtractPlugin()
