@@ -1,3 +1,4 @@
+import * as keyboard from './keyboard'
 import { random } from './generator'
 
 // WordElement class
@@ -49,5 +50,23 @@ export function load() {
     wordElements.push( new WordElement(guesses) )
     wordElements[0].select()
 }
+
+function onLetterClick(letter, button) {
+    console.log(letter, button)
+}
+
+function onEnterClick() {
+    console.log('enter')
+}
+
+function onBackspaceClick() {
+    console.log('backspace')
+}
+
+
+keyboard.load()
+keyboard.letterListener(onLetterClick)
+keyboard.enterListener(onEnterClick)
+keyboard.backspaceListener(onBackspaceClick)
 
 //console.log(random())

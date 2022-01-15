@@ -1,4 +1,4 @@
-const keyLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const keyLetters = "abcdefghijklmnopqrstuvwxyz"
 
 let keyboard = null
 let keys = {}
@@ -7,19 +7,39 @@ let listeners = {
     backspace: null,
     enter: null
 }
-let letterListener = null
 
 export function load() {
-    //Get elements
+    // Get elements
     keyboard = document.getElementById('keyboard-wrapper')
 
-    //Generate keyboard
+    // Generate letter keys
     for (const k of keyLetters) {
         let div = document.createElement('div')
-        div.innerText = k
+        div.innerText = k.toUpperCase()
         keys[k] = div
+
+        div.addEventListener('click', (e) =>
+        {
+            //Pass letter and dom element
+            listeners.letter(k, div)
+        })
+
         keyboard.appendChild(div)
     }
+
+    // Generate special keys
+    //backspace
+    let backspace = document.createElement('div')
+    backspace.classList.add('backpsace')
+    backspace.innerText = '<'
+    backspace.addEventListener('click', () => listeners.backspace())
+    keyboard.appendChild(backspace)
+    //enter
+    let enter = document.createElement('div')
+    enter.classList.add('enter')
+    enter.innerText = '+'
+    enter.addEventListener('click', () => listeners.enter())
+    keyboard.appendChild(enter)
 }
 
 export function letterListener(listener) {
