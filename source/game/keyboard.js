@@ -20,6 +20,11 @@ function createKey(id, text, classes, clickEvent) {
     return key
 }
 
+function addClassToKey(char, classname) {
+    let key = keys[char]
+    key.classList.add(classname)
+}
+
 export function load() {
     // Get elements
     keyboard = document.getElementById('keyboard-wrapper')
@@ -32,8 +37,9 @@ export function load() {
     // Create hidden key
     createKey('hidden', '', 'hidden', null)
 
-    // Generate special keys    
+    // Generate special keys
     createKey('del', '←', 'backpsace', () => listeners.backspace()) //backspace
+    createKey('res', '⟲', 'reset', () => listeners.reset()) //reset
 }
 
 export function letterListener(listener) {
@@ -44,9 +50,8 @@ export function backspaceListener(listener) {
     listeners.backspace = listener
 }
 
-function addClassToKey(char, classname) {
-    let key = keys[char]
-    key.classList.add(classname)
+export function resetListener(listener) {
+    listeners.backspace = listener
 }
 
 export function updateKeys(score, word) {
