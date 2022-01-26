@@ -72,9 +72,9 @@ export default class WordElement {
             this.addShadow(index)
         }
         
-        if (rollselect && index > 0) {
-            this.letters[index].classList.remove(this.selectedLetterClass)
-            this.letters[index-1].classList.add(this.selectedLetterClass)
+        if (rollSelect && index > 0) {
+            this.letters[index+1].classList.remove(this.selectedLetterClass)
+            this.letters[index].classList.add(this.selectedLetterClass)
         }
     }
 
