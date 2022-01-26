@@ -4,6 +4,7 @@ const fs = require('fs')
 const CopyPlugin = require("copy-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin").default
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 module.exports = {
     entry: {
@@ -29,7 +30,8 @@ module.exports = {
                     compress: true
                 },
                 parallel: true,
-            })
+            }),
+            new CssMinimizerPlugin()
         ],
     },
     module: {
