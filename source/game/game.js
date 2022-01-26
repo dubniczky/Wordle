@@ -30,8 +30,8 @@ function reset(first) {
     // If not first game
     if (!first) {
         // Reset word fields
-        for (let e in wordElements) {
-            e.remove()
+        for (let e of wordElements) {
+            e.delete()
         }
         // Reset cursor
         cursor.word = 0
