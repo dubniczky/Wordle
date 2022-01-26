@@ -2,15 +2,46 @@ import * as keyboard from './keyboard'
 import * as generator from './generator'
 import WordElement from './word-element'
 
+
+// Define variables
+let guessesWrapper = null
+let wordElements = []
+let cursor = {
+    word: 0,
+    letter: 0
+}
+let currentWord = [ ' ', ' ', ' ', ' ', ' ' ]
+let correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
+let targetWord = ''
+
+
 // Loading
 
 export function load() {
     guessesWrapper = document.getElementById('guess-wrapper')
+    reset(true)
+}
+
+function reset(first) {
+    // Create word fields
     createWord()
-
+    // Reset correct letters
     correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
-
+    // Generate new word
     targetWord = generator.random()
+    // If not first game
+    if (!first) {
+        // Reset word fields
+        for (let e in wordElements) {
+            e.remove()
+        }
+        // Reset cursor
+        cursor.word = 0
+        cursor.letter = 0
+        // Reset current word letters
+        currentWord = [ ' ', ' ', ' ', ' ', ' ' ]
+        correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
+    }
 }
 
 // Events
@@ -32,6 +63,10 @@ function onBackspaceClick() {
         wordElements[cursor.word].removeLetter(cursor.letter)
         currentWord[cursor.letter] = ' '
     }
+}
+
+function onResetClick() {
+    reset(false)
 }
 
 // Methods
@@ -98,19 +133,11 @@ function wictory() {
     wordElements[cursor.word].setColors([2,2,2,2,2])
 }
 
-// Define variables
-let guessesWrapper = null
-let wordElements = []
-let cursor = {
-    word: 0,
-    letter: 0
-}
-let currentWord = [ ' ', ' ', ' ', ' ', ' ' ]
-let targetWord = ''
-let correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
+
 
 
 // Load keyboard
 keyboard.load()
 keyboard.letterListener(onLetterClick)
 keyboard.backspaceListener(onBackspaceClick)
+keyboard.resetListener(onResetClick)
