@@ -37,9 +37,5 @@ yarn install
 2. Start services
 
 ```bash
-yarn serve
-```
-
-```bash
 yarn dev
 ```
