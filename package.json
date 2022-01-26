@@ -8,16 +8,8 @@
     "build": "npx webpack --config webpack.prod.js",
     "dev": "npx webpack serve --open --config webpack.dev.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/richard-nagy/word-salad.git"
-  },
   "author": "Richard Antal Nagy",
   "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/richard-nagy/word-salad/issues"
-  },
-  "homepage": "https://gitlab.com/richard-nagy/word-salad#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^10.2.0",
     "css-loader": "^6.5.1",
