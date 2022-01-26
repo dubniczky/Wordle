@@ -17,6 +17,7 @@ function createKey(id, text, classes, clickEvent) {
     }
     key.addEventListener('click', clickEvent)
     keyboard.appendChild(key)
+    return key
 }
 
 export function load() {
@@ -27,6 +28,9 @@ export function load() {
     for (const k of keyLetters) {
         createKey(k, k.toUpperCase(), '', () => listeners.letter(k))
     }
+
+    // Create hidden key
+    createKey('hidden', '', 'hidden', null)
 
     // Generate special keys    
     createKey('del', '←', 'backpsace', () => listeners.backspace()) //backspace
