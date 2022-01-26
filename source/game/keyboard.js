@@ -5,7 +5,8 @@ let keys = {}
 let listeners = {
     letter: null,
     backspace: null,
-    enter: null
+    enter: null,
+    reset: null
 }
 
 function createKey(id, text, classes, clickEvent) {
@@ -51,7 +52,7 @@ export function backspaceListener(listener) {
 }
 
 export function resetListener(listener) {
-    listeners.backspace = listener
+    listeners.reset = listener
 }
 
 export function updateKeys(score, word) {
