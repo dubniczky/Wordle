@@ -102,4 +102,12 @@ export default class WordElement {
             }
         }
     }
+
+    delete = () => {
+        for (let l of this.letters) {
+            l.remove()
+        }
+        this.container.remove()
+        delete this
+    }
 }
