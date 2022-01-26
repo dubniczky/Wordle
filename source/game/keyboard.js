@@ -8,32 +8,28 @@ let listeners = {
     enter: null
 }
 
+function createKey(id, text, classes, clickEvent) {
+    let key = document.createElement('div')
+    keys[id] = key
+    key.innerText = text
+    if (classes != '') {
+        key.classList.add(classes)
+    }
+    key.addEventListener('click', clickEvent)
+    keyboard.appendChild(key)
+}
+
 export function load() {
     // Get elements
     keyboard = document.getElementById('keyboard-wrapper')
 
     // Generate letter keys
     for (const k of keyLetters) {
-        let div = document.createElement('div')
-        div.innerText = k.toUpperCase()
-        keys[k] = div
-
-        div.addEventListener('click', (e) =>
-        {
-            //Pass letter and dom element
-            listeners.letter(k, div)
-        })
-
-        keyboard.appendChild(div)
+        createKey(k, k.toUpperCase(), '', () => listeners.letter(k))
     }
 
-    // Generate special keys
-    //backspace
-    let backspace = document.createElement('div')
-    backspace.classList.add('backpsace')
-    backspace.innerText = '←'
-    backspace.addEventListener('click', () => listeners.backspace())
-    keyboard.appendChild(backspace)
+    // Generate special keys    
+    createKey('del', '←', 'backpsace', () => listeners.backspace()) //backspace
 }
 
 export function letterListener(listener) {
