@@ -23,8 +23,6 @@ export function load() {
 }
 
 function reset(first) {
-    // Create word fields
-    createWord()
     // Reset correct letters
     correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
     // Generate new word
@@ -41,7 +39,12 @@ function reset(first) {
         // Reset current word letters
         currentWord = [ ' ', ' ', ' ', ' ', ' ' ]
         correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
+        // Reset keyboard
+        keyboard.reset()
     }
+
+    // Create word fields
+    createWord()
 }
 
 // Events
