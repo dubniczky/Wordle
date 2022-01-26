@@ -1,3 +1,6 @@
+# Packages
 node_modules/
-
+# Compiled files
 dist/
+# Yarn errors
+yarn-error.log
