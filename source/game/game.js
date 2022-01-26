@@ -11,14 +11,11 @@ export function load() {
     correctLetters = [ ' ', ' ', ' ', ' ', ' ' ]
 
     targetWord = generator.random()
-    console.log(targetWord)
 }
 
 // Events
 
 function onLetterClick(letter, button) {
-    console.log(letter, button)
-
     if (cursor.letter < 5) {
         wordElements[cursor.word].addLetter(letter, cursor.letter)        
         currentWord[cursor.letter] = letter
@@ -30,8 +27,6 @@ function onLetterClick(letter, button) {
 }
 
 function onBackspaceClick() {
-    console.log('backspace')
-    
     if (cursor.letter > 0) {
         cursor.letter--
         wordElements[cursor.word].removeLetter(cursor.letter)
@@ -74,7 +69,6 @@ function checkResult() {
 
     // Fix correct letters
     fixCorrectLetters(score)
-    console.log(correctLetters)
 
     createWord()
 }
@@ -102,9 +96,6 @@ function calculateCurrentScore() {
 function wictory() {
     // Color last row correct
     wordElements[cursor.word].setColors([2,2,2,2,2])
-
-    console.log('wictory!')
-    console.log('Steps: ', wordElements.length)
 }
 
 // Define variables
