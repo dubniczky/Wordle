@@ -43,6 +43,16 @@ export function load() {
     createKey('res', '⟲', 'reset', () => listeners.reset()) //reset
 }
 
+export function reset() {
+    for (const i in keys) {
+        const k = keys[i]        
+        //Remove all possible classes
+        k.classList.remove('disabled')
+        k.classList.remove('offset')
+        k.classList.remove('correct')
+    }
+}
+
 export function letterListener(listener) {
     listeners.letter = listener
 }
