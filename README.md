@@ -2,6 +2,10 @@
 
 Browser game where you guess a 5 letter word.
 
+## Live Demo
+
+https://richardnagy.gitlab.io/webprojects/word-salad/
+
 ## Installation
 
 1. Install dependencies
