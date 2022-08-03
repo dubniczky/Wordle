@@ -1,6 +1,6 @@
-# Word Salad
+# Worldle Clone
 
-Browser game where you guess a 5 letter word.
+A free browser version of the popular Wordle game
 
 ## Live Demo
 

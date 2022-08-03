@@ -1,5 +1,5 @@
 {
-  "name": "word-salad",
+  "name": "worldle-clone",
   "version": "1.0.0",
   "description": "A web game where you have to guess a 5 letter word.",
   "main": "./source/index.js",
